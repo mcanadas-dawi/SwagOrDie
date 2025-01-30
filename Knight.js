@@ -1,22 +1,16 @@
-class Creature {
-    constructor(health, basicDamage) {
-        this.health = health;
-        this.basicDamage = basicDamage;
+class Knight extends Creature{
+    constructor(weapon, playerName) {
+        super(1000, 30, playerName);
+        this.weapon = weapon;
     }
 
-    takeDamage(damageAmount) {
-        this.health -= damageAmount;
-    }
-
-    heal(healthAmount) {
-        this.health += healthAmount;
-    }
-
-    basicHit(opponent) {
-        opponent.takeDamage(this.basicDamage);
-    }
-
-    isAlive() {
-        return (this.health > 0)
+    hit(opponent) {
+        let damage = 40
+        if (this.weapon === "rapier") {
+            damage = 50;
+        } else if (this.weapon === "sword") {
+            damage = 60;
+        }
+        opponent.takeDamage(damage);
     }
 }

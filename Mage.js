@@ -1,18 +1,20 @@
-class Creature {
-    constructor(health, basicDamage) {
-        this.health = health;
-        this.basicDamage = basicDamage;
+class Mage extends Creature{
+    constructor(type, playerName) {
+        super(500, 20, playerName);
+        this.type = type;
     }
 
-    takeDamage(damageAmount) {
-        this.health -= damageAmount;
+    hit(opponent) {
+        let damage = 50
+        if (this.type === "fire") {
+            damage = 80;
+        } else if (this.type === "lighting") {
+            damage = 100;
+        }
+        opponent.takeDamage(damage);
     }
 
-    heal(healthAmount) {
-        this.health += damageAmount;
-    }
-
-    basicHit(opponent) {
-        opponent.takeDamage(this.basicDamage);
+    heal() {
+        super.heal(Math.random() * 20);
     }
 }

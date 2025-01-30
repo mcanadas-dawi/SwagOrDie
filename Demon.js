@@ -1,10 +1,10 @@
-class Vampire extends Creature{
-    constructor() {
-        super(250, 90);
+class Demon extends Creature{
+    constructor(playerName) {
+        super(600, 120, playerName);
     }
 
-    bite(opponent) {
+    hit(opponent) {
         this.basicHit(opponent);
-        super.heal(Math.random() * this.basicDamage);
+        this.takeDamage(Math.random() * this.basicDamage);
     }
 }

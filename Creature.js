@@ -1,7 +1,8 @@
 class Creature {
-    constructor(health, basicDamage) {
+    constructor(health, basicDamage, playerName) {
         this.health = health;
         this.basicDamage = basicDamage;
+        this.playerName = playerName;
     }
 
     takeDamage(damageAmount) {
@@ -9,10 +10,22 @@ class Creature {
     }
 
     heal(healthAmount) {
-        this.health += damageAmount;
+        this.health += healthAmount;
     }
 
     basicHit(opponent) {
+        opponent.takeDamage(this.basicDamage);
+    }
+
+    isAlive() {
+        return (this.health > 0)
+    }
+
+    win() {
+        return `${this.playerName} win with ${this.health} remaining`;
+    }
+
+    hit(opponent) {
         opponent.takeDamage(this.basicDamage);
     }
 }

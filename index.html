@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Fighting Lands</title>
 </head>
 <body>
-$END$
+
+<button id="game">Start Playing</button>
+
+<script src="Creature.js"></script>
+<script src="Mage.js"></script>
+<script src="Knight.js"></script>
+<script src="Vampire.js"></script>
+<script src="Demon.js"></script>
+<script src="Game.js"></script>
 </body>
 </html>
+
+
+<style>
+
+    button {
+        background: red;
+        border-bottom: 6px inset rgba(0,0,0,.5);
+        border-left: 6px inset rgba(0,0,0,.5);
+        border-right: 6px inset rgba(255,255,255,.5);
+        border-top: 6px inset rgba(255,255,255,.5);
+        box-sizing: border-box;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 2.2rem;
+        margin: 1rem;
+        min-width: 200px;
+        padding: .5rem;
+        text-transform: uppercase;
+        width: auto;
+
+        &:focus,
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+</style>
