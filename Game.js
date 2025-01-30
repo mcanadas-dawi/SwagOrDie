@@ -17,20 +17,9 @@ function play() {
     let creatureB = getCreature(selectedCreatureB, playerB);
 
     do {
-        creatureA.hit(creatureB);
-        console.log("A HITS B");
-        console.log(creatureA.playerName + "'s creature hits " + creatureB.playerName +"'s creature" )
-        console.log(creatureB.playerName + "Takes damage, HEALTH AFTER HIT: " + creatureB.health);
-        console.log(creatureA.playerName + "'s Current health: " + creatureA.health);
-
+        doTurn(creatureA, creatureB);
         if (!creatureA.isAlive() || !creatureB.isAlive()) break;
-
-        creatureB.hit(creatureA);
-        console.log("B HITS A");
-        console.log(creatureB.playerName + "'s creature hits " + creatureA.playerName +"'s creature" )
-        console.log(creatureA.playerName + "Takes damage, HEALTH AFTER HIT: " + creatureA.health);
-        console.log(creatureB.playerName + "'s Current health: " + creatureB.health);
-
+        doTurn(creatureB, creatureA);
     } while (creatureA.isAlive() && creatureB.isAlive());
 
     alert(checkAlive(creatureA, creatureB));
@@ -56,4 +45,14 @@ function checkAlive(creatureA, creatureB) {
     } else {
         return creatureA.win()
     }
+}
+
+function doTurn(dealer, receiver) {
+    dealer.hit(receiver);
+    alert(
+        `${dealer.playerName} HITS ${receiver.playerName} \n` +
+        `${dealer.playerName}'s creature hits ${receiver.playerName}'s creature" \n` +
+        `${receiver.playerName} Takes damage, HEALTH AFTER HIT: ${receiver.health} \n` +
+        `${dealer.playerName}'s Current health: ${dealer.health}`
+    )
 }
