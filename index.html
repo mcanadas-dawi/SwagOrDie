@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Fighting Lands</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
 </head>
 <body>
 
-<button id="game">Start Playing</button>
 
 <script src="Creature.js"></script>
 <script src="Mage.js"></script>
@@ -14,32 +15,155 @@
 <script src="Vampire.js"></script>
 <script src="Demon.js"></script>
 <script src="Game.js"></script>
+
+<h1 class="game-title">Swag Or Die</h1>
+
+<div class="form-holder">
+
+
+    <section class="nes-container with-title" id="player1Settings">
+        <h3 class="title nes-text is-primary">Player 1</h3>
+        <form id="player1Form">
+            <label for="player1name">Name</label>
+            <input type="text" id="player1name" name="player1name" value="" placeholder="Enter your name" required class="nes-input">
+            <br><br>
+            <label for="player1class">Player 1</label>
+            <div class="nes-select">
+                <select id="player1class" name="player1class">
+                    <option value="class" selected>Select a class</option>
+                    <optgroup label="Knight">Knight</optgroup>
+                        <option value="Rapier">Rapier</option>
+                        <option value="Sword">Sword</option>
+                    <optgroup label="Mage">Mage</optgroup>
+                        <option value="Fire">Fire</option>
+                        <option value="Lightning">Lightning</option>
+                    <optgroup label="Demon">Demon</optgroup>
+                        <option value="Demon">Demon</option>
+                    <optgroup label="Vampire">Vampire</optgroup>
+                        <option value="Vampire">Vampire</option>
+                </select>
+            </div>
+            <br>
+
+            <button type="button" class="nes-btn is-success" id="saveCharacter1">Save Character</button>
+
+        </form>
+    </section>
+    <section id="player1" style="display: none">
+        <div class="health-bar">
+            <i class="nes-icon is-large heart"></i>
+            <progress class="nes-progress is-success" id="player1Health"></progress>
+        </div>
+        <img class="player-image" id="player1Image">
+    </section>
+
+    <section class="nes-container with-title" id="player2Settings">
+        <h3 class="title nes-text is-warning">Player 2</h3>
+        <form id="player2Form">
+            <label for="player2name">Name</label>
+            <input type="text" id="player2name" name="player2name" value="" placeholder="Enter your name" required class="nes-input">
+            <br><br>
+            <label for="player2class">Choose your class</label>
+            <div class="nes-select">
+                <select id="player2class" name="player2class">
+                    <option value="class" selected>Select a class</option>
+                    <optgroup label="Knight">Knight</optgroup>
+                    <option value="Rapier">Rapier</option>
+                    <option value="Sword">Sword</option>
+                    <optgroup label="Mage">Mage</optgroup>
+                    <option value="Fire">Fire</option>
+                    <option value="Lightning">Lightning</option>
+                    <optgroup label="Demon">Demon</optgroup>
+                    <option value="Demon">Demon</option>
+                    <optgroup label="Vampire">Vampire</optgroup>
+                    <option value="Vampire">Vampire</option>
+                </select>
+            </div>
+            <br>
+
+            <button type="button" class="nes-btn is-success" id="saveCharacter2">Save Character</button>
+
+        </form>
+    </section>
+
+    <section id="player2" style="display: none">
+        <div class="health-bar">
+            <i class="nes-icon is-large heart"></i>
+            <progress class="nes-progress is-success" id="player2Health"></progress>
+        </div>
+        <img class="player-image" id="player2Image">
+    </section>
+
+
+</div>
+
+<button id="game" class="nes-btn is-primary main-button">Start Playing</button>
+
+
+
 </body>
 </html>
 
 
 <style>
-
-    button {
-        background: red;
-        border-bottom: 6px inset rgba(0,0,0,.5);
-        border-left: 6px inset rgba(0,0,0,.5);
-        border-right: 6px inset rgba(255,255,255,.5);
-        border-top: 6px inset rgba(255,255,255,.5);
-        box-sizing: border-box;
+    h1{
+        margin: 50px auto;
         color: white;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 2.2rem;
-        margin: 1rem;
-        min-width: 200px;
-        padding: .5rem;
-        text-transform: uppercase;
-        width: auto;
+    }
 
-        &:focus,
-        &:hover {
-            opacity: 0.7;
+    .form-holder{
+        margin: 20px auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    body{
+        background-image: url('./assets/backgrounds/dessert.webp');
+        background-size: cover;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .main-button{
+            margin: auto;
+        }
+
+        h3{
+            background-color: transparent;
+        }
+
+    }
+    section {
+        background-color: white;
+        width: 400px;
+        margin: 20px auto;
+
+        button{
+            width: 320px;
         }
     }
+
+    #player1{
+        background-color: transparent;
+        width: 500px;
+        .health-bar{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    #player2{
+        background-color: transparent;
+        width: 500px;
+        .health-bar{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
 </style>
