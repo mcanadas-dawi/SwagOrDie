@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let creatureA;
 let creatureB;
+let playerAwin = 0;
+let playerBwin = 0;
 
 const players = {
     player1: {
@@ -155,6 +157,8 @@ async function play() {
     document.getElementById("player2Health").setAttribute("value", creatureB.health);
     document.getElementById("player2Health").setAttribute("max", creatureB.health);
 
+
+
     // Add a flag to track if we should keep going or not
     while (creatureA.isAlive() && creatureB.isAlive()) {
         // Wait before next hit
@@ -175,8 +179,15 @@ async function play() {
     }
 
     // Display the winner after the loop ends
-    alert(checkAlive(creatureA, creatureB));
-    document.getElementById('playAgain').style.display = "flex";
+    roundControl();
+    if (playerAwin==2||playerBwin==2) {
+    alert(endGame());
+    } else {
+        alert(checkAlive(creatureA, creatureB));
+        document.getElementById('nextRound').style.display = "block";
+    }
+    console.log(playerAwin);
+    console.log(playerBwin);
 }
 
 function getCreature(selectedCreature, selectedWeapon, playerName) {
@@ -195,10 +206,31 @@ function getCreature(selectedCreature, selectedWeapon, playerName) {
 
 function checkAlive(creatureA, creatureB) {
     if (!creatureA.isAlive()) {
-        return `${creatureB.playerName} wins!`;
+        return `${creatureB.playerName} wins this round!`;
     } else {
-        return `${creatureA.playerName} wins!`;
+        return `${creatureA.playerName} wins this round!`;
     }
+    
+}
+
+//CONTROL DE RONDAS GANADAS
+function roundControl() {
+    if (!creatureA.isAlive()) {
+        playerBwin++;
+    } else {
+        playerAwin++;
+    }
+}
+
+//CONTROL DE FIN DE PARTIDA
+function endGame() {
+    if (playerAwin === 2) {
+        return `${creatureA.playerName} wins the game!`;
+    } else if (playerBwin === 2) {
+        return `${creatureB.playerName} wins the game!`;
+    }
+    document.getElementById('playAgain').style.display = "flex";
+    document.getElementById('nextRound').style.display = "none";
 }
 
 async function doTurn(dealer, receiver) {
