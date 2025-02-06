@@ -99,7 +99,11 @@
 
 <button id="game" class="nes-btn is-primary main-button">Start Playing</button>
 
-
+<div id="bg-selector">
+    <button class="nes-btn" onclick="changeBg('dessert.webp')">1</button>
+    <button class="nes-btn" onclick="changeBg('davQLBo.gif')">2</button>
+    <button class="nes-btn" onclick="changeBg('dessert3.jpg')">3</button>
+</div>
 
 </body>
 </html>
@@ -166,4 +170,11 @@
         }
     }
 
+    #bg-selector {
+        position: fixed;
+        left: 2%;
+        bottom: 2%;
+        display: flex;
+        gap: 1vw;
+    }
 </style>

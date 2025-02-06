@@ -192,3 +192,7 @@ async function doTurn(dealer, receiver) {
 function wait() {
     return new Promise(resolve => setTimeout(resolve, 200)); // Changed to 1 second (1000 ms)
 }
+
+function changeBg(bg) {
+    document.body.style.backgroundImage = `url('./assets/backgrounds/${bg}')`;
+}
