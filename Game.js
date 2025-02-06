@@ -109,11 +109,14 @@ function checkCharacter(player) {
 function characterFilled(player){
     if (player === 1 ){
         document.getElementById("player1Settings").style.display = "none";
-        document.getElementById("player1").style.display = "block";
+        document.getElementById("player1").style.display = "flex";
+        document.getElementById("player1Image").src = `assets/creatures/${players.player1.weapon}.png`;
     }
     if (player === 2){
         document.getElementById("player2Settings").style.display = "none";
-        document.getElementById("player2").style.display = "block";
+        document.getElementById("player2").style.display = "flex";
+        document.getElementById("player2Image").src = `assets/creatures/${players.player2.weapon}.png`;
+        document.getElementById("player2Image").style.transform = "scaleX(-1)";
     }
 }
 
@@ -150,6 +153,9 @@ async function play() {
         await doTurn(creatureB, creatureA);
         document.getElementById("player1Health").setAttribute("value", creatureA.health);
         document.getElementById("player2Health").setAttribute("value", creatureB.health);
+
+        // Waite half second to make the user experience better
+        await wait(500);
     }
 
     // Display the winner after the loop ends

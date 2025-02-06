@@ -31,16 +31,16 @@
             <div class="nes-select">
                 <select id="player1class" name="player1class">
                     <option value="class" selected>Select a class</option>
-                    <optgroup label="Knight">Knight</optgroup>
+                    <optgroup label="Knight">Knight
                         <option value="Rapier">Rapier</option>
                         <option value="Sword">Sword</option>
-                    <optgroup label="Mage">Mage</optgroup>
+                    </optgroup>
+                    <optgroup label="Mage">Mage
                         <option value="Fire">Fire</option>
                         <option value="Lightning">Lightning</option>
-                    <optgroup label="Demon">Demon</optgroup>
-                        <option value="Demon">Demon</option>
-                    <optgroup label="Vampire">Vampire</optgroup>
-                        <option value="Vampire">Vampire</option>
+                    </optgroup>
+                    <option value="Demon">Demon</option>
+                    <option value="Vampire">Vampire</option>
                 </select>
             </div>
             <br>
@@ -49,12 +49,12 @@
 
         </form>
     </section>
-    <section id="player1" style="display: none">
+    <section id="player1" style="display: none; flex-direction: column;">
         <div class="health-bar">
             <i class="nes-icon is-large heart"></i>
             <progress class="nes-progress is-success" id="player1Health"></progress>
         </div>
-        <img class="player-image" id="player1Image">
+        <img class="player-image" id="player1Image" alt="player image" src="">
     </section>
 
     <section class="nes-container with-title" id="player2Settings">
@@ -67,15 +67,15 @@
             <div class="nes-select">
                 <select id="player2class" name="player2class">
                     <option value="class" selected>Select a class</option>
-                    <optgroup label="Knight">Knight</optgroup>
-                    <option value="Rapier">Rapier</option>
-                    <option value="Sword">Sword</option>
-                    <optgroup label="Mage">Mage</optgroup>
-                    <option value="Fire">Fire</option>
-                    <option value="Lightning">Lightning</option>
-                    <optgroup label="Demon">Demon</optgroup>
+                    <optgroup label="Knight">Knight
+                        <option value="Rapier">Rapier</option>
+                        <option value="Sword">Sword</option>
+                    </optgroup>
+                    <optgroup label="Mage">Mage
+                        <option value="Fire">Fire</option>
+                        <option value="Lightning">Lightning</option>
+                    </optgroup>
                     <option value="Demon">Demon</option>
-                    <optgroup label="Vampire">Vampire</optgroup>
                     <option value="Vampire">Vampire</option>
                 </select>
             </div>
@@ -86,12 +86,12 @@
         </form>
     </section>
 
-    <section id="player2" style="display: none">
+    <section id="player2" style="display: none; flex-direction: column;">
         <div class="health-bar">
             <i class="nes-icon is-large heart"></i>
             <progress class="nes-progress is-success" id="player2Health"></progress>
         </div>
-        <img class="player-image" id="player2Image">
+        <img class="player-image" id="player2Image" alt="player image" src="">
     </section>
 
 
