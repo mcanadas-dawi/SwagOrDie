@@ -15,6 +15,22 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("dessert1").addEventListener('click', function () {
+        changeBg('dessert.webp');
+    })
+});
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("dessert2").addEventListener('click', function () {
+        changeBg('dessert3.jpg');
+    })
+});
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("street").addEventListener('click', function () {
+        changeBg('davQLBo.gif');
+    })
+});
+
 let creatureA;
 let creatureB;
 
@@ -160,6 +176,7 @@ async function play() {
 
     // Display the winner after the loop ends
     alert(checkAlive(creatureA, creatureB));
+    document.getElementById('playAgain').style.display = "flex";
 }
 
 function getCreature(selectedCreature, selectedWeapon, playerName) {
